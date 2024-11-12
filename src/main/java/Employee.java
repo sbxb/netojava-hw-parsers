@@ -19,6 +19,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return String.format("#%d %s %s (%d) of %s", id, firstName, lastName, age, country);
+        return String.format("%s{id = %d, firstName = %s, lastName = %s, country = %s, age = %d}",
+                this.getClass().getSimpleName(), id, firstName, lastName, country, age);
     }
 }
