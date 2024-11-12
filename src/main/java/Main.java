@@ -16,16 +16,14 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("CSV to JSON convertor");
-
+        // Задача 1: CSV - JSON парсер
         String[] columnMapping = {"id", "firstName", "lastName", "country", "age"};
         String fileName = "data.csv";
-        List<Employee> list = parseCSV(columnMapping, fileName);
-        list.forEach(System.out::println);
+        List<Employee> list = CSVParser.parseCSV(columnMapping, fileName);
+        //list.forEach(System.out::println);
 
         String json = listToJson(list);
-
-        System.out.println(json);
+        //System.out.println(json);
 
         writeString(json, "data.json");
     }
@@ -36,23 +34,6 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    private static List<Employee> parseCSV(String[] columnMapping, String fileName) {
-        List<Employee> employees;
-        try (CSVReader reader = new CSVReader(new FileReader(fileName))) {
-            ColumnPositionMappingStrategy<Employee> strategy = new ColumnPositionMappingStrategy<>();
-            strategy.setType(Employee.class);
-            strategy.setColumnMapping(columnMapping);
-            CsvToBean<Employee> csv = new CsvToBeanBuilder<Employee>(reader)
-                    .withMappingStrategy(strategy)
-                    .build();
-            employees = csv.parse();
-        } catch (Exception e) {
-            return null;
-        }
-
-        return employees;
     }
 
     private static String listToJson(List<Employee> list) {
