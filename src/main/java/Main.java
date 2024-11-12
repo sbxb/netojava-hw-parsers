@@ -1,13 +1,11 @@
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
 import com.google.gson.JsonArray;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -48,7 +46,7 @@ public class Main {
     }
 
     private static boolean writeString(String json, String fileName) {
-        try(FileWriter fileWriter = new FileWriter(fileName)) {
+        try (FileWriter fileWriter = new FileWriter(fileName)) {
             fileWriter.write(json);
         } catch (IOException e) {
             return false;
