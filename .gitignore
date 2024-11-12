@@ -3,7 +3,7 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-data.json
+data*.json
 
 ### IntelliJ IDEA ###
 .idea/

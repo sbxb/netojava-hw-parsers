@@ -26,6 +26,16 @@ public class Main {
         //System.out.println(json);
 
         writeString(json, "data.json");
+
+        // Задача 2: XML - JSON парсер
+        String fileName2 = "data.xml";
+        List<Employee> list2 = XMLParser.parseXML(fileName2);
+        //list2.forEach(System.out::println);
+
+        String json2 = listToJson(list2);
+        System.out.println(json);
+
+        writeString(json, "data2.json");
     }
 
     private static void writeString(String json, String fileName) {
